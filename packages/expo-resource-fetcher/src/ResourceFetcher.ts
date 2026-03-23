@@ -267,6 +267,7 @@ export const ExpoResourceFetcher: ExpoResourceFetcherInterface = {
         ResourceFetcherUtils.triggerHuggingFaceDownloadCounter(
           resource.extendedInfo.uri
         );
+        ResourceFetcherUtils.triggerDownloadEvent(resource.extendedInfo.uri);
 
         return this.returnOrStartNext(
           resource.extendedInfo,
@@ -527,6 +528,7 @@ export const ExpoResourceFetcher: ExpoResourceFetcherInterface = {
     });
     this.downloads.delete(source);
     ResourceFetcherUtils.triggerHuggingFaceDownloadCounter(uri);
+    ResourceFetcherUtils.triggerDownloadEvent(uri);
     return ResourceFetcherUtils.removeFilePrefix(sourceExtended.fileUri);
   },
 

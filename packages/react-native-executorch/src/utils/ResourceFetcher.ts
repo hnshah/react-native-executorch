@@ -127,6 +127,7 @@ export class ResourceFetcher {
       if (typeof source === 'string') {
         try {
           ResourceFetcherUtils.triggerHuggingFaceDownloadCounter(source);
+          ResourceFetcherUtils.triggerDownloadEvent(source);
         } catch (error) {
           throw error;
         }

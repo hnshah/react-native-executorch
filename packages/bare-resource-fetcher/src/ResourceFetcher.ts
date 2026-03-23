@@ -300,7 +300,9 @@ export const BareResourceFetcher: BareResourceFetcherInterface = {
 
     await RNFS.moveFile(extendedInfo.cacheFileUri!, extendedInfo.fileUri!);
     this.downloads.delete(source);
+    console.log('completeDownload');
     ResourceFetcherUtils.triggerHuggingFaceDownloadCounter(extendedInfo.uri!);
+    ResourceFetcherUtils.triggerDownloadEvent(extendedInfo.uri!);
 
     const filename = extendedInfo.fileUri!.split('/').pop();
     if (filename) {
